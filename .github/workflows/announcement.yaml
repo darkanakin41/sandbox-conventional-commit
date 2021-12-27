@@ -20,6 +20,4 @@ jobs:
         with:
           webhook_id: ${{ secrets.WEBHOOK_ID }}
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-          color: "#0187A6"
-          username: "Patch Note !"
-          args: ${{env.text}}
+          args: ${{steps.markdown.outputs.text}}
