@@ -1,3 +1,4 @@
+name: 'Automatic release on main pushes'
 on:
   push:
     branches:
