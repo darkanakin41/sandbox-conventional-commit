@@ -18,8 +18,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Conventional Changelog Action
-        uses: TriPSs/conventional-changelog-action@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          version-file: "composer.json"
+          node-version: 13
+      - name: Add plugin for conventional commits
+        run: npm install conventional-changelog-conventionalcommits
+        working-directory: ./.github/workflows
+
+      - name: Release to GitHub
+        working-directory: ./.github/workflows
+        run: npx semantic-release
