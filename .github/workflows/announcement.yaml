@@ -1,0 +1,25 @@
+name: 'Announce releases in different channels'
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+
+  discrod:
+    name: Discord - notify on every release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Convert markdown to discord markdown for issue
+        uses: LoveToKnow/slackify-markdown-action@v1.0.0
+        id: markdown
+        with:
+          text: "${{github.event.release.tag_name}} \n ${{ github.event.release.body }}"
+
+      - name: send custom message with args
+        uses: appleboy/discord-action@master
+        with:
+          webhook_id: ${{ secrets.WEBHOOK_ID }}
+          webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
+          args: ${{steps.markdown.outputs.text}}
