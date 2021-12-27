@@ -1,4 +1,16 @@
 {
   "branches": ["main"],
-  "plugins": ["@semantic-release/release-notes-generator", "@semantic-release/github"]
+  "plugins": ["@semantic-release/release-notes-generator", "@semantic-release/github"],
+  "compareUrlFormat": "",
+  "commitUrlFormat": "",
+  "types": [
+      {"type": "feat", "section": "Nouveautés"},
+      {"type": "fix", "section": "Corrections"},
+      {"type": "chore", "hidden": true},
+      {"type": "docs", "hidden": true},
+      {"type": "style", "hidden": true},
+      {"type": "refactor", "hidden": true},
+      {"type": "perf", "section": "Optimisations"},
+      {"type": "test", "hidden": true}
+  ]
 }
