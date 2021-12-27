@@ -2,6 +2,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'CHANGELOG.md'
 
 jobs:
   create-release:
@@ -9,4 +11,4 @@ jobs:
 
     steps:
       - name: Conventional Changelog Action
-        uses: TriPSs/conventional-changelog-action@v3
+        uses: labor-digital/conventional-release-action@master
