@@ -17,7 +17,7 @@ jobs:
 
       - name: Remove links
         run: |
-          echo ${{steps.markdown.outputs.text}} | sed 's/[\w \W \s]*[(]*http[s]*[a-zA-Z0-9 : \. \/ ; % \W -]*[)]*/ /g'
+          echo "text=$(echo ${{steps.markdown.outputs.text}} | sed 's/[\w \W \s]*[(]*http[s]*[a-zA-Z0-9 : \. \/ ; % \W -]*[)]*/ /g')" >> $GITHUB_ENV
 
       - name: send custom message with args
         uses: appleboy/discord-action@master
@@ -26,4 +26,4 @@ jobs:
           webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
           color: "#0187A6"
           username: "Patch Note !"
-          args: ${{steps.markdown.outputs.text}}
+          args: ${{env.text}}
