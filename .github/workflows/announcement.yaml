@@ -1,4 +1,4 @@
-name: 'Announce releases in different channels'
+name: 'Discord Announcement'
 
 on:
   release:

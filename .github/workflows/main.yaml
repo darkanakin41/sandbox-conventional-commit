@@ -1,4 +1,4 @@
-name: 'Automatic release on main pushes'
+name: 'Release Creator'
 on:
   push:
     branches:
