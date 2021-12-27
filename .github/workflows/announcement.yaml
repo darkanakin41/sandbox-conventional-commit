@@ -2,8 +2,7 @@ name: 'Discord Announcement'
 
 on:
   release:
-    types:
-      - published
+    types: [released]
 
 jobs:
   discrod:
