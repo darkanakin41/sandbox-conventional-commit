@@ -6,7 +6,6 @@ on:
       - published
 
 jobs:
-
   discrod:
     name: Discord - notify on every release
     runs-on: ubuntu-latest
